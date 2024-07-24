@@ -1,0 +1,327 @@
+Questão 2: Determinante de uma Matriz
+
+Escreva um programa que calcule o determinante de uma matriz quadrada de ordem n. O determinante é uma função que associa um único número a uma matriz quadrada, fundamental em várias áreas da álgebra linear.
+
+Entrada
+
+    Um inteiro n (1 ≤ n ≤ 10) representando a ordem da matriz.
+    n linhas com n números reais, representando os elementos da matriz.
+
+Saída
+
+    O determinante da matriz, impresso com duas casas decimais.
+
+Método de Cálculo
+
+Utilize a expansão por cofatores para calcular o determinante recursivamente.
+
+    Base da Recursão:
+        Para uma matriz 1x1, o determinante é o próprio elemento.
+        Para uma matriz 2x2, o determinante é det(A) = a11 * a22 - a12 * a21.
+    Expansão por Cofatores:
+        Para matrizes de ordem superior, use a fórmula: det(A) = Σ (-1)^i * A[0][i] * det(M_i), onde M_i é a submatriz resultante de excluir a primeira linha e a i-ésima coluna de A.
+        Crie uma função para obter submatrizes menores.
+
+Exemplo de Entrada
+
+3
+1 2 3
+4 5 6
+7 8 9
+
+Exemplo de Saída
+
+0.00
+
+
+
+Questão 2: Multiplicação de Matrizes
+
+Implemente um programa que leia duas matrizes A (de ordem m x n) e B (de ordem n x p) e calcule a matriz resultante da multiplicação C = A * B.
+
+Entrada
+
+    Dois inteiros m e n.
+    m linhas com n números reais representando os elementos da matriz A.
+    Dois inteiros n e p.
+    n linhas com p números reais representando os elementos da matriz B.
+
+Saída
+
+    A matriz resultante C de ordem m x p.
+
+Método de Cálculo
+
+    Verificação da Multiplicabilidade:
+        A multiplicação de matrizes é possível se o número de colunas de A for igual ao número de linhas de B.
+    Cálculo do Elemento C[i][j]:
+        Use a fórmula: C[i][j] = Σ (A[i][k] * B[k][j]) para k de 0 a n-1.
+        Itere sobre cada elemento da matriz resultante C e calcule sua soma.
+
+Exemplo de Entrada
+
+2 3
+1 2 3
+4 5 6
+3 2
+7 8
+9 10
+11 12
+
+Exemplo de Saída
+
+58 64
+139 154
+
+
+
+Questão 3: Resolução de Sistemas Lineares (Método de Gauss)
+
+Crie um programa que resolva sistemas de equações lineares usando o método de eliminação de Gauss.
+
+Entrada
+
+    Um inteiro n representando o número de equações.
+    n linhas com n+1 números reais representando a matriz aumentada do sistema.
+
+Saída
+
+    n números reais representando as soluções do sistema.
+
+Método de Cálculo
+
+    Eliminação de Gauss:
+        Transforme a matriz aumentada em uma matriz triangular superior.
+        Para cada linha i, elimine as entradas abaixo do pivô (primeiro elemento não nulo da linha) fazendo combinações lineares das linhas.
+    Substituição Regressiva:
+        Resolva o sistema a partir da última linha até a primeira, substituindo os valores encontrados.
+
+Exemplo de Entrada
+
+3
+2 1 -1 8
+-3 -1 2 -11
+-2 1 2 -3
+
+Exemplo de Saída
+
+2.00 -3.00 1.00
+
+
+
+Questão 4: Produto Vetorial
+
+Desenvolva um programa que calcule o produto vetorial de dois vetores tridimensionais.
+
+Entrada
+
+    Seis números reais representando os componentes dos vetores A e B.
+
+Saída
+
+    Três números reais representando o vetor resultante.
+
+Método de Cálculo
+
+Use a fórmula do produto vetorial: C = A x B = (A2B3 - A3B2, A3B1 - A1B3, A1B2 - A2B1).
+Exemplo de Entrada
+
+1 2 3
+4 5 6
+
+Exemplo de Saída
+
+-3 6 -3
+
+
+
+Questão 5: Interseção de Retas no Plano
+
+Escreva um programa que determine o ponto de interseção de duas retas no plano, dadas suas equações na forma ax + by + c = 0.
+
+Entrada
+
+    Seis números reais representando os coeficientes das equações das duas retas.
+
+Saída
+
+    Dois números reais representando o ponto de interseção.
+
+Método de Cálculo
+
+    Equações das Retas:
+        Reta 1: a1x + b1y + c1 = 0
+        Reta 2: a2x + b2y + c2 = 0
+    Sistema de Equações:
+        Resolva o sistema de equações lineares formado pelas duas retas.
+        Utilize a fórmula de Cramer:
+
+        markdown
+
+        x = (b2*c1 - b1*c2) / (a1*b2 - a2*b1)
+        y = (a1*c2 - a2*c1) / (a1*b2 - a2*b1)
+
+Exemplo de Entrada
+
+1 -1 1
+1 1 -3
+
+Exemplo de Saída
+
+1.00 -2.00
+
+
+
+Questão 6: Distância Entre Dois Pontos no Espaço
+
+Desenvolva um programa que calcule a distância entre dois pontos em um espaço tridimensional.
+
+Entrada
+
+    Seis números reais representando as coordenadas dos pontos P1 (x1, y1, z1) e P2 (x2, y2, z2).
+
+Saída
+
+    Um número real representando a distância entre os pontos.
+
+Método de Cálculo
+
+Use a fórmula da distância euclidiana: d = sqrt((x2 - x1)^2 + (y2 - y1)^2 + (z2 - z1)^2).
+Exemplo de Entrada
+
+1 2 3
+4 5 6
+
+Exemplo de Saída
+
+5.20
+
+
+
+Questão 7: Área de um Triângulo no Plano
+
+Implemente um programa que calcule a área de um triângulo no plano, dadas as coordenadas de seus três vértices.
+
+Entrada
+
+    Seis números reais representando as coordenadas dos vértices A (x1, y1), B (x2, y2) e C (x3, y3).
+
+Saída
+
+    Um número real representando a área do triângulo.
+
+Método de Cálculo
+
+Use a fórmula da área do triângulo: Área = 0.5 * |x1(y2 - y3) + x2(y3 - y1) + x3(y1 - y2)|.
+Exemplo de Entrada
+
+0 0
+4 0
+2 3
+
+Exemplo de Saída
+
+6.00
+
+
+
+Questão 8: Transformações Lineares
+
+Crie um programa que aplique uma transformação linear a um conjunto de pontos no plano. O programa deve ler a matriz de transformação e os pontos a serem transformados.
+
+Entrada
+
+    Quatro números reais representando a matriz de transformação T de ordem 2x2.
+    Um inteiro n representando o número de pontos.
+    n linhas com dois números reais representando as coordenadas dos pontos.
+
+Saída
+
+    n linhas com as coordenadas transformadas dos pontos.
+
+Método de Cálculo
+
+Aplique a transformação T aos pontos P usando a fórmula: P' = T * P.
+Exemplo de Entrada
+
+2 0
+0 2
+3
+1 1
+2 2
+3 3
+
+Exemplo de Saída
+
+2 2
+4 4
+6 6
+
+
+
+Questão 9: Determinação de uma Circunferência
+
+Escreva um programa que determine a equação de uma circunferência dada por três pontos não colineares no plano.
+
+Entrada
+
+    Seis números reais representando as coordenadas dos pontos A (x1, y1), B (x2, y2) e C (x3, y3).
+
+Saída
+
+    Três números reais representando os coeficientes da equação da circunferência na forma (x - h)^2 + (y - k)^2 = r^2.
+
+Método de Cálculo
+
+    Equações do Sistema:
+        Use as coordenadas dos pontos para montar o sistema de equações.
+        Resolva o sistema para encontrar os valores de h, k e r.
+    Fórmulas:
+
+    scss
+
+    D = 2 * (x1(y2 - y3) + x2(y3 - y1) + x3(y1 - y2))
+    h = ((x1^2 + y1^2)(y2 - y3) + (x2^2 + y2^2)(y3 - y1) + (x3^2 + y3^2)(y1 - y2)) / D
+    k = ((x1^2 + y1^2)(x3 - x2) + (x2^2 + y2^2)(x1 - x3) + (x3^2 + y3^2)(x2 - x1)) / D
+    r = sqrt((x1 - h)^2 + (y1 - k)^2)
+
+Exemplo de Entrada
+
+0 0
+0 2
+2 0
+
+Exemplo de Saída
+
+1.00 1.00 1.41
+
+
+
+Questão 10: Projeção Ortogonal de um Vetor
+
+Crie um programa que calcule a projeção ortogonal de um vetor sobre outro vetor no espaço tridimensional.
+
+Entrada
+
+    Seis números reais representando os componentes dos vetores A e B.
+
+Saída
+
+    Três números reais representando o vetor projeção.
+
+Método de Cálculo
+
+Use a fórmula da projeção de A sobre B: proj_B(A) = (A . B / B . B) * B.
+
+    Produto Escalar:
+        Calcule A . B = A1 * B1 + A2 * B2 + A3 * B3.
+        Calcule B . B = B1^2 + B2^2 + B3^2.
+    Projeção:
+        Calcule proj_B(A) = (A . B / B . B) * (B1, B2, B3).
+
+Exemplo de Entrada
+
+1 2 3
+4 5 6
+
+Exemplo de Saída
