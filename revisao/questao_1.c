@@ -1,10 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
-
-int random_int() {
-    return rand() % 100;
-}
 
 int** inicializa_matriz(int n) {
     // Alocação de memória dinâmica
@@ -15,24 +10,25 @@ int** inicializa_matriz(int n) {
         matriz[i] = (int*)malloc(n * sizeof(int));   
     }
 
-    // Vai gerar números aleatórios para as posições
+    // Solicita os valores ao usuário para preencher a matriz
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            matriz[i][j] = random_int();
+            printf("Insira o valor para matriz[%d][%d]: ", i, j);
+            scanf("%d", &matriz[i][j]);
         }
     }
 
     return matriz;
 }
 
-void limpa_memoria_array_bidimensional_inteiro (int ** matriz, int n) {
+void limpa_memoria_array_bidimensional_inteiro(int **matriz, int n) {
     for(int i = 0; i < n; i++){
         free(matriz[i]);
     }
     free(matriz);
 }
 
-void mostrar_matriz(int ** matriz, int n) {
+void mostrar_matriz(int **matriz, int n) {
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             printf("%d ", matriz[i][j]);
@@ -41,7 +37,7 @@ void mostrar_matriz(int ** matriz, int n) {
     }
 }
 
-void get_submatriz(int ** matriz, int ** submatriz, int n, int col) {
+void get_submatriz(int **matriz, int **submatriz, int n, int col) {
     int subi = 0;
     for(int i = 1; i < n; i++){
         int subj = 0;
@@ -67,14 +63,14 @@ int determinante(int **matriz, int n) {
     }
     
     int det = 0;
-    int ** submatriz = (int**)malloc((n-1) * sizeof(int*));
+    int **submatriz = (int**)malloc((n-1) * sizeof(int*));
     for(int i = 0; i < (n-1); i++){
         submatriz[i] = (int*)malloc((n-1) * sizeof(int));
     }
     
     for(int i = 0; i < n; i++){
         get_submatriz(matriz, submatriz, n, i);
-        int sub_matriz_determinante  = determinante(submatriz, n-1);
+        int sub_matriz_determinante = determinante(submatriz, n-1);
         det += (i % 2 == 0 ? 1 : -1) * matriz[0][i] * sub_matriz_determinante;
     }
     
@@ -88,8 +84,6 @@ int determinante(int **matriz, int n) {
 
 int main() {
     int n;
-
-    srand(time(NULL));
 
     printf("Insira um valor entre 1 e 10: ");
     scanf("%d", &n);
