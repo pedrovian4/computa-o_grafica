@@ -81,7 +81,10 @@ void limpar_cli() {
         system("clear"); 
     #endif
 }
-
+/**
+ * TODO: Fazer um método de multiplicação de matrizes mais eficiente usando o seguinte algoritmo
+ * https://en.wikipedia.org/wiki/Strassen_algorithm
+ * **/
 int **multiplica_matrizes_int(int **matriz_a, int linhas_a, int colunas_a, int **matriz_b, int colunas_b) {
     int **matriz_c = inicializa_matriz_colunas_e_linhas(linhas_a, colunas_b);
     
