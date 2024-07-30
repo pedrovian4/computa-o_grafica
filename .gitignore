@@ -1,0 +1,3 @@
+*.out
+.vscode
+./setup_opengl/gfw
